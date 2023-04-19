@@ -229,7 +229,7 @@ function KeywordTrend (props) {
         </div>
     )
 }
-
+ 
 export default function Ticker(props) {
     const name = props.name;
     const json = props.data;
