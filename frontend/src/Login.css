@@ -1,0 +1,9 @@
+.login-bg {
+    min-height: 100vh;
+    background-image: url('/img/background.jpg');
+    background-size: cover;
+}
+
+.login-card {
+    padding: 3em;
+}
