@@ -37,7 +37,6 @@ export default function Login() {
             setLoading(true);
         }
         
-        
         /* Send login request */
         // REMOVE ME FROM PROD!
         // gotta bypass cors in dev, and im too lazy to setup a proxy server soooooo
