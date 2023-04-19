@@ -85,12 +85,14 @@ export default function Dashboard() {
         /* Trigger loading animation */
         setLoading(true);
 
-        fetch('https://afzpve4n13.execute-api.ap-southeast-2.amazonaws.com/lake_api/s3_get', {
+        fetch('https://proxy.cors.sh/https://afzpve4n13.execute-api.ap-southeast-2.amazonaws.com/lake_api/s3_get', {
             method: "POST",
             headers: {
                 'Accept': 'application/json',
                 'Content-Type': 'application/json',
                 'Authorization' : token,
+                // remove me!
+                'x-cors-api-key': 'temp_f6444eeea1da87688a96b18b8b787e46'
             },
             body: JSON.stringify({
                 "term" : "23t1",

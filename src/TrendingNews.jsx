@@ -4,7 +4,7 @@ import ListGroup from 'react-bootstrap/ListGroup';
 import Spinner from 'react-bootstrap/esm/Spinner';
 
 /* GraphQL API URL */
-const gqlAPI = "https://afzpve4n13.execute-api.ap-southeast-2.amazonaws.com/H09A_FOXTROT/graphql";
+const gqlAPI = "https://proxy.cors.sh/https://afzpve4n13.execute-api.ap-southeast-2.amazonaws.com/H09A_FOXTROT/graphql";
 
 /* GQL Queries */
 const GQL_MOST_RECENT_ARTICLES = `
@@ -92,6 +92,7 @@ export default function TrendingNews() {
             method: "POST",
             headers: { 
                 "Content-Type": "application/json",
+                "x-cors-api-key": "temp_2a4ef6b7261776d25a0d5f23aaf2047d"
             },
             body: JSON.stringify({
                 query: GQL_DAILY_SUMMARY,

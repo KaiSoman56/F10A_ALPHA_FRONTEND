@@ -36,16 +36,19 @@ export default function Login() {
         if (!isLoading) {
             setLoading(true);
         }
-        
+
         /* Send login request */
         // REMOVE ME FROM PROD!
         // gotta bypass cors in dev, and im too lazy to setup a proxy server soooooo
         // fetch('https://afzpve4n13.execute-api.ap-southeast-2.amazonaws.com/login', {
-        fetch('https://afzpve4n13.execute-api.ap-southeast-2.amazonaws.com/login', {
+        fetch('https://proxy.cors.sh/https://afzpve4n13.execute-api.ap-southeast-2.amazonaws.com/login', {
             method: form.method,
             headers: {
                 'Accept': 'application/json',
                 'Content-Type': 'application/json',
+                
+                // remove me!
+                'x-cors-api-key': 'temp_f6444eeea1da87688a96b18b8b787e46'
             },
             body: JSON.stringify(formJson),
         })

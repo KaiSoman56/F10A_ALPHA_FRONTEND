@@ -4,7 +4,7 @@ import Table from 'react-bootstrap/Table'
 import { LineChart, Line, XAxis, YAxis, CartesianGrid, Tooltip, Legend, ResponsiveContainer } from 'recharts';
 
 /* GraphQL API URL */
-const gqlAPI = "https://afzpve4n13.execute-api.ap-southeast-2.amazonaws.com/H09A_FOXTROT/graphql";
+const gqlAPI = "https://proxy.cors.sh/https://afzpve4n13.execute-api.ap-southeast-2.amazonaws.com/H09A_FOXTROT/graphql";
 const GQL_HOWS_IT_TRENDING = `
     query howsItTrending(
         $keyword: String!,
@@ -174,6 +174,7 @@ function KeywordTrend (props) {
             method: "POST",
             headers: { 
                 "Content-Type": "application/json",
+                "x-cors-api-key": "temp_a67dd52e12678ce525902bfcc5cd36cf",
                 "origin": "grida.co"
             },
             body: JSON.stringify({
@@ -229,7 +230,7 @@ function KeywordTrend (props) {
         </div>
     )
 }
- 
+
 export default function Ticker(props) {
     const name = props.name;
     const json = props.data;
