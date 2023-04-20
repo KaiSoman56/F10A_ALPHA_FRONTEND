@@ -1,4 +1,4 @@
-import { useState, useEffect } from 'react';
+import { useState, useEffect, useRef } from 'react';
 import Card from 'react-bootstrap/Card';
 import ListGroup from 'react-bootstrap/ListGroup';
 import Spinner from 'react-bootstrap/esm/Spinner';
@@ -33,7 +33,6 @@ fragment KeyValuePairFragment on KeyValuePair {
     topic
     count
 }
-
 query dailySummary($date: String) {
   dailySummary(date: $date) {
     total_articles
@@ -44,14 +43,18 @@ query dailySummary($date: String) {
 }
 `;
 
-
 export default function TrendingNews() {
+    const triggered = useRef(false);
     const [recentArticles, setRecentArticles] = useState(null);
     const [dailySummary, setDailySummary] = useState(null);
 
     useEffect(() => {
-        // getRecentArticles();
-        // getDailySummary();
+        if (!triggered.current) {
+            getRecentArticles();
+            getDailySummary();
+            triggered.current = true;
+        }
+
     }, []);
 
     function getRecentArticles() {
