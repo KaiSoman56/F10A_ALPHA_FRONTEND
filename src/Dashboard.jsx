@@ -12,37 +12,6 @@ import Modal from 'react-bootstrap/Modal'
 import TrendingNews from './TrendingNews';
 import Ticker from './Ticker';
 
-/* Available stocks stored in S3 */
-const stock_map = {
-    "BHP.AX" : ["BHP"],
-    "CBA.AX" : ["Commonwealth Bank"],
-    "QAN.AX" : ["Qantas"],
-    "RIO.AX" : ["Rio Tinto"],
-    "WOW.AX" : ["Woolworths"],
-    "^AORD" : ["All ordinaries","All ords"],
-    "^IXIC" : ["Nasdaq"],
-    "^DJI" : ["Dow Jones"],
-    "CL=F" : ["Crude Oil"],
-    "GC=F" : ["Gold"],
-    "SI=F" : ["Silver"],
-    "NG=F" : ["Natural Gas"],
-    "RB=F" : ["RBOB Gasoline"],
-    "KC=F" : ["Coffee"],
-    "AAPL" : ["Apple"],
-    "MSFT" : ["Microsoft"],
-    "AMZN" : ["Amazon"],
-    "META" : ['Meta'],
-    "INTC" : ['Intel'],
-    "TSLA" : ['Tesla'],
-    "GOOG" : ['Google'],
-    "JPM" : ['JPMorgan'],
-    "KO" : ['Coca-Cola'],
-    "PFE" : ["Pfizer"],
-    "^N100" : ["Euronext"],
-    "^CMC200" : ["Crypto 200"],
-    "^AMZI" : ['New York Stock Exchange']
-}
-
 export default function Dashboard() {
     const navigate = useNavigate();
 
@@ -131,9 +100,8 @@ export default function Dashboard() {
             }
 
             setStockData(sD);
-            setStockName(stock_map[formJson['stock']]);
+            setStockName(formJson['stock']);
             setLoading(false);
-
             setShowStock(true);
         })
         .catch(err => {
