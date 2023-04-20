@@ -160,9 +160,8 @@ function ShowGraph (props) {
 
 function KeywordTrend (props) {
     const triggered = useRef(false);
-    const keyword = tickerNameMap[props.keyword];
     const [data, setData] = useState([]);
-
+    
     const daysAgo = (n) => {
         let date = new Date(Date.now() - n * 24 * 60 * 60 * 1000);
         let date_str = date.getFullYear() + "-" + date.getMonth() + "-" + date.getDate();
@@ -174,7 +173,7 @@ function KeywordTrend (props) {
             method: "POST",
             headers: { 
                 "Content-Type": "application/json",
-                "x-cors-api-key": "temp_a67dd52e12678ce525902bfcc5cd36cf",
+                "x-cors-api-key": "temp_2a4ef6b7261776d25a0d5f23aaf2047d",
                 "origin": "grida.co"
             },
             body: JSON.stringify({
@@ -204,7 +203,7 @@ function KeywordTrend (props) {
     useEffect(() => {
         if (!triggered.current) {
             for (let i = 1; i <= 7; i++) {
-                getKeywordTrendScore(keyword, daysAgo(i), daysAgo(i-1));
+                getKeywordTrendScore(props.keyword, daysAgo(i), daysAgo(i-1));
             }
             triggered.current = true;
         }
@@ -261,7 +260,7 @@ export default function Ticker(props) {
                             comparing the number of occurences of "{tickerNameMap[name]}" in published news 
                             articles over a period of time, compared to the overall average number of occurences.
                         </Card.Text>
-                        <KeywordTrend keyword={name} />
+                        <KeywordTrend keyword={tickerNameMap[name]} />
                     </Card.Body>
                 </Card>
             </div>
